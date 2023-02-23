@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+
+    <script>
+      function calcularEnvio() {
+        var ancho = parseFloat(inAncho.value);
+        var alto = parseFloat(inAlto.value);
+        var largo = parseFloat(inLargo.value);
+
+        var medidaCm3 = ancho * alto * largo;
+
+        var peso = parseFloat(inPeso.value);
+
+        var totalPrice = 2 + 0.005 * medidaCm3 + 0.001 * peso;
+
+        outPrecio.innerHTML = totalPrice + " Euros";
+      }
+    </script>
+  </head>
+  <body>
+    <label>Medidas Paquete:(centimetros)</label>
+    <br />
+    <label>Ancho:</label>
+    <input type="text" id="inAncho" />
+    <br />
+    <label>Alto:</label>
+    <input type="text" id="inAlto" />
+    <br />
+    <label>Largo:</label>
+    <input type="text" id="inLargo" />
+    <br />
+    <label>Peso:(gramos)</label>
+    <input type="text" id="inPeso" />
+    <br />
+    <button onclick="calcularEnvio()">Calcular Coste</button>
+    <br />
+    <output id="outPrecio"></output>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function averageGasto() {
+
+        var consCarretera = parseFloat(consumoCarr.value);
+        var consCiudad = parseFloat(consumoCiud.value);
+        var precioCombus = parseFloat(precioCombustible.value);
+        var consumoCarreteraTotal = (consCarretera/100) * precioCombus;
+        var consumoCiudadTotal = (consCiudad/100) * precioCombus;
+
+
+        var kmsCarretera = parseFloat(kmCarretera.value);
+        var kmsCiudad = parseFloat(kmCiudad.value);
+
+        var totalCoste = (kmsCiudad * consumoCiudadTotal)+(kmsCarretera * consumoCarreteraTotal);
+
+        outGasto.innerHTML = totalCoste + " €";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- carretera = 0.055 litros/km ciudad = 0.098 litros/km -->
+    <!-- modificar de manera que los consumos del vehículo y el precio
+         del combustible sean parámetros de entrada del programa -->
+
+         <h2>Calculadora de consumo de vehículo en Carretera o Ciudad</h2>
+
+    <label>Kms Carretera</label>
+    <input type="text" id="kmCarretera">
+    <br>
+    <label>Kms Ciudad</label>
+    <input type="text" id="kmCiudad">
+    <br>
+    <label>Consumo vehículo en Carretera(a los 100km):</label>
+    <input type="text" id="consumoCarr">
+    <br>
+    <label>Consumo vehículo en Ciudad(a los 100km):</label>
+    <input type="text" id="consumoCiud">
+    <br>
+    <label>Precio combustible:</label>
+    <input type="text" id="precioCombustible">
+    <br>
+    <button onclick="averageGasto()">Calcular Coste</button>
+    <br>
+    <output id="outGasto"></output>
+  </body>
+</html>
